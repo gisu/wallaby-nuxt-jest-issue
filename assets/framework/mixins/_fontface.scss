@@ -1,0 +1,14 @@
+// ===================================================
+// Fontface Generator
+// ===================================================
+
+@each $name, $entry in $kittn-fontface-map {
+  @each $number, $typo in $entry {
+    @font-face {
+      font-family: $name;
+      src: url('#{map-get($kittn-directories, fonts)}#{map-get($typo,filename)}.woff2') format('woff2'),
+      url('#{map-get($kittn-directories, fonts)}#{map-get($typo,filename)}.woff') format('woff');
+      font-weight : map-get($typo,style);
+      font-style  : map-get($typo,weight); }
+  }
+}

@@ -1,0 +1,86 @@
+// ============================================================
+//          Base Setup
+// ------------------------------------------------------------
+$kittn-activate: (
+  mobile-first: true
+);
+
+// Kittn Directory Organisation
+//
+// @type Map
+$kittn-directories: (
+  fonts: '/static/fonts/',
+  images: '/static/images/',
+);
+
+// Map with all breakpoints and related behavior
+//
+// @type map
+//
+// @prop {string} base.key                  - Breakpoint Name
+// @prop {number} base.key.size             - The width that activate the Trigger
+$kittn-breakpoint-map: (
+  'xs': (
+    size: 320px
+  ),
+  's': (
+    size: 480px
+  ),
+  'sm': (
+    size: 560px
+  ),
+  'm': (
+    size: 768px
+  ),
+  'ml': (
+    size: 960px
+  ),
+  'l': (
+    size: 1180px
+  )
+);
+
+/// Specific variables for the template
+///
+/// @type map
+///
+/// @prop {map}    pagesize           - Pagesizes for the Container Module
+/// @prop {number} pagesize.min       - Minimal Pagesize
+/// @prop {number} pagesize.max       - Maximal Pagesize
+$kittn-globals: (
+  pagesize: (
+    min: 320px,
+    max: 940px
+  )
+);
+
+// Define the different fontfaces that are loaded locally
+//
+// @type map
+//
+// @prop {map}    base.fontname                  - CSS Fontname
+// @prop {map}    base.fontname.variant          - Used for different font fonts
+// @prop {bool}   base.fontname.variant.filename - Filename, when 'false' the Fontname will be used
+// @prop {string} base.fontname.variant.weight   - Associated Fontweight
+// @prop {string} base.fontname.variant.style    - Associated Fontstyle
+$kittn-fontface-map: (
+  // EXAMPLE
+  // 'testfont': (
+  //   1: (
+  //     filename: 'testfont',
+  //     weight: normal,
+  //     style: normal
+  //   )
+  // )
+);
+
+// Base Typo Setup
+//
+// @type map
+//
+// @prop {string} base.unit                 - Typo Unit 'px' or 'rem'
+$kittn-typo: (
+  unit: rem,
+  mqunit: px
+);
+
