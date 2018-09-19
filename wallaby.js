@@ -3,16 +3,14 @@ module.exports = (wallaby) => {
 
   const compiler = wallaby.compilers.babel({ presets: [['@vue/app', { modules: 'commonjs' }]] });
 
-  const wallabyWebpack = require('wallaby-webpack');
-  const webpack = require('webpack');
-  const wallabyPostprocessor = wallabyWebpack({
-    plugins: [
-      new webpack.NormalModuleReplacementPlugin(/\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/, 'node-noop')
-    ]
-  });
-
   return {
-    files: ['jest.config.js', 'package.json', '!**/*.spec.js'],
+    files: [
+      'jest.config.js',
+      'package.json',
+      'components/**',
+      'assets/**',
+      '!components/**/*.spec.js'
+    ],
 
     tests: ['__tests__/**/*.spec.js', 'components/**/*.spec.js'],
 
@@ -32,7 +30,7 @@ module.exports = (wallaby) => {
 
     setup: function(wallaby) {
       const jestConfig = require('./package').jest || require('./jest.config');
-      jestConfig.transform = {};
+      jestConfig.transform = {'.+\\.(svg|css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub'};
       wallaby.testFramework.configure(jestConfig);
     },
 
